@@ -12,6 +12,7 @@ namespace Tricount.Domain.Entities
     public class User : BaseAuditableEntity
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long UserId { get; set; }
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
@@ -19,7 +20,13 @@ namespace Tricount.Domain.Entities
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string Email { get; set; }
+        [MaxLength(16)]
         public byte[] Salt { get; set; }
+        [MaxLength(64)]
         public byte[] PasswordHash { get; set; }
+
+        public ICollection<TricountInfo> Tricounts { get; set; }
+        public ICollection<ExpenseParticipant> ExpenseParticipants { get; set; }
+
     }
 }
