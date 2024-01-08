@@ -1,0 +1,6 @@
+@Tricount.WebAPI_HostAddress = http://localhost:5155
+
+GET {{Tricount.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
