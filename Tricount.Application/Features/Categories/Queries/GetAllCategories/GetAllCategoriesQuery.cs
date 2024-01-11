@@ -24,9 +24,11 @@ namespace Tricount.Application.Features.Categories.Queries.GetAllCategories
         }
         public async Task<IEnumerable<GetAllCategoriesDTO>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)
         {
-            return await _unitOfWork.Repository<TricountCategory>().Entities
-                .ProjectTo< GetAllCategoriesDTO>(_mapper.ConfigurationProvider)
-                .ToListAsync(cancellationToken);
+            var data = await _unitOfWork.Repository<TricountCategory>().GetAllAsync();
+            return _mapper.Map<IEnumerable<GetAllCategoriesDTO>>(data);
+            //return await _unitOfWork.Repository<TricountCategory>().Entities
+            //    .ProjectTo<GetAllCategoriesDTO>(_mapper.ConfigurationProvider)
+            //    .ToListAsync(cancellationToken);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Tricount.Domain.Entities
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long UserId { get; set; }
-        [Column(TypeName = "VARCHAR")]
+        [Column(TypeName = "NVARCHAR")]
         [StringLength(100)]
         public string UserName { get; set; }
         [Column(TypeName = "VARCHAR")]
