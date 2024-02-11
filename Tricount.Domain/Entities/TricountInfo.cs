@@ -13,7 +13,7 @@ namespace Tricount.Domain.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long TriCountInfoId {  get; set; }
+        public Guid TriCountInfoId {  get; set; }
 
         [ForeignKey(nameof(User))]
         public long UserId { get; set; }

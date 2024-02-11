@@ -13,7 +13,7 @@ namespace Tricount.Domain.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long UserId { get; set; }
+        public Guid UserId { get; set; }
         [Column(TypeName = "NVARCHAR")]
         [StringLength(100)]
         public string UserName { get; set; }
