@@ -13,14 +13,14 @@ namespace Tricount.Domain.Entities
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long ExpenseParticipantId { get; set; }
+        public Guid ExpenseParticipantId { get; set; }
 
         [ForeignKey(nameof(User))]
-        public long UserId { get; set; }
+        public Guid UserId { get; set; }
         public User User { get; set; }
 
         [ForeignKey(nameof(Expense))]
-        public long ExpenseId { get; set; }
+        public Guid ExpenseId { get; set; }
         public Expense Expense { get; set; }
 
         public bool IsOwner { get; set; }
