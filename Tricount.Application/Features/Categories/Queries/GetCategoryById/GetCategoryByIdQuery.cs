@@ -14,7 +14,7 @@ namespace Tricount.Application.Features.Categories.Queries.GetCategoryById
 
     public record GetCategoryByIdQuery : IRequest<GetCategoriesDTO>
     {
-        public int CategoryId { get; set;}
+        public int CategoryId { get; set; }
     }
     public class GetCategoryByIdQueryHandler : IRequestHandler<GetCategoryByIdQuery, GetCategoriesDTO>
     {
@@ -28,7 +28,7 @@ namespace Tricount.Application.Features.Categories.Queries.GetCategoryById
         public async Task<GetCategoriesDTO> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
         {
             var data = await _unitOfWork.Repository<TricountCategory>()
-                .GetByIdAsync(request.CategoryId , cancellationToken);
+                .GetByIdAsync(request.CategoryId, cancellationToken);
             return _mapper.Map<GetCategoriesDTO>(data);
         }
     }

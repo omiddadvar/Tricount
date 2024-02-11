@@ -28,6 +28,7 @@
     <Folder Include="Common\" />
     <Folder Include="DTOs\" />
     <Folder Include="Extentions\" />
+    <Folder Include="Features\Categories\Commands\" />
   </ItemGroup>
 
 </Project>

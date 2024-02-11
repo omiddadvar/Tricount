@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tricount.Application.Features.Categories.Queries.GetAllCategories;
+using Tricount.Application.Features.Categories.DTOs;
 using Tricount.Domain.Entities;
 
 namespace Tricount.Application.Mapper
@@ -13,7 +13,7 @@ namespace Tricount.Application.Mapper
     {
         public TricountProfile()
         {
-            CreateMap<GetAllCategoriesDTO, TricountCategory>();
+            CreateMap<GetCategoriesDTO, TricountCategory>();
         }
     }
 }
