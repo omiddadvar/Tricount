@@ -17,16 +17,4 @@ namespace Tricount.Application.Features.Categories.Queries.GetCategoryById
     {
         public int CategoryId { get; set; }
     }
-    public class GetCategoryByIdQueryHandler : BaseCommandQueryClass<GetCategoryByIdQuery, GetCategoriesDTO>
-    {
-        public GetCategoryByIdQueryHandler(IUnitOfWork unitOfWork, IMapper mapper) : 
-            base(unitOfWork, mapper) {}
-
-        public override async Task<GetCategoriesDTO> Handle(GetCategoryByIdQuery request, CancellationToken cancellationToken)
-        {
-            var data = await _unitOfWork.Repository<TricountCategory>()
-                .GetByIdAsync(request.CategoryId, cancellationToken);
-            return _mapper.Map<GetCategoriesDTO>(data);
-        }
-    }
 }

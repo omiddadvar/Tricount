@@ -10,9 +10,11 @@ using Tricount.Application.Interfaces.Repositories;
 
 namespace Tricount.Application.Features.Categories.Commands.AddCategory
 {
-
-    public record AddCategoryCommand : IRequest<int>
+    public class AddCategoryCommandHandler(IUnitOfWork unitOfWork, IMapper mapper) : IRequestHandler<AddCategoryCommand, int>
     {
-        public string TricountCategoryName { get; set; }
+        public Task<int> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

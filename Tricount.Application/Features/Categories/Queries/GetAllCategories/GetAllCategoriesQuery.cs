@@ -15,18 +15,5 @@ using Tricount.Domain.Entities;
 namespace Tricount.Application.Features.Categories.Queries.GetAllCategories
 {
     public record GetAllCategoriesQuery : IRequest<IEnumerable<GetCategoriesDTO>>;
-    public class GetAllCategoriesQueryHandler : BaseCommandQueryClass<GetAllCategoriesQuery, IEnumerable<GetCategoriesDTO>>
-    {
-        public GetAllCategoriesQueryHandler(IUnitOfWork unitOfWork, IMapper mapper) : 
-            base(unitOfWork, mapper) {}
 
-        public override async Task<IEnumerable<GetCategoriesDTO>> Handle(GetAllCategoriesQuery request, CancellationToken cancellationToken)
-        {
-            var data = await _unitOfWork.Repository<TricountCategory>().GetAllAsync(cancellationToken);
-            return _mapper.Map<IEnumerable<GetCategoriesDTO>>(data);
-            //return await _unitOfWork.Repository<TricountCategory>().Entities
-            //    .ProjectTo<GetAllCategoriesDTO>(_mapper.ConfigurationProvider)
-            //    .ToListAsync(cancellationToken);
-        }
-    }
 }
