@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Tricount.Application.Common;
 using Tricount.Application.Interfaces.Repositories;
+using Tricount.Domain.Entities;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Tricount.Application.Features.Categories.Commands.AddCategory
 {
@@ -14,7 +16,18 @@ namespace Tricount.Application.Features.Categories.Commands.AddCategory
     {
         public Task<int> Handle(AddCategoryCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var response = new BaseValuedCommandResponse();
+
+            var data = await unitOfWork.Repository<TricountCategory>().get
+
+            await unitOfWork.Save();
+
+            response.IsSusses = true;
+            response.Id = data.Id;
+
+
+
+            return response;
         }
     }
 }

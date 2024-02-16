@@ -23,7 +23,10 @@ namespace Tricount.Domain.Entities
         public Guid ExpenseId { get; set; }
         public Expense Expense { get; set; }
 
-        public bool IsOwner { get; set; }
-        public double DeptValue { get; set; }
+        public bool IsOwner { get; set; } = false;
+
+        [StringLength(100 ,ErrorMessage = "Participant name is too long")]
+        public string? ParticipantName { get; set; }
+        public double DeptValue { get; set; } = 0
     }
 }
