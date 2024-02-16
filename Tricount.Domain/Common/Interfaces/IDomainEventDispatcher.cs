@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Tricount.Domain.Common.Interfaces
 {
-    public interface IDomainEventDispatcher
+    public interface IDomainEventDispatcher<TPrimaryKey>
     {
-        Task DispatchAndClearEvents(IEnumerable<BaseEntity> entitiesWithEvents);
+        Task DispatchAndClearEvents(IEnumerable<BaseEntity<TPrimaryKey>> entitiesWithEvents);
     }
 }

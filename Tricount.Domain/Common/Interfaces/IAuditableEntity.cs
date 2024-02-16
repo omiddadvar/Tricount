@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Tricount.Domain.Common.Interfaces
 {
-    public interface IAuditableEntity : IEntity
+    public interface IAuditableEntity<TPrimaryKey> : IEntity<TPrimaryKey>
     {
         DateTime? CreatedDate { get; set; }
         DateTime? UpdatedDate { get; set; }

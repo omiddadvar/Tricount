@@ -9,11 +9,8 @@ using Tricount.Domain.Common;
 
 namespace Tricount.Domain.Entities
 {
-    public class User : BaseAuditableEntity
+    public class User : BaseAuditableEntity<Guid>
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid UserId { get; set; }
         [Column(TypeName = "NVARCHAR")]
         [StringLength(100)]
         public string UserName { get; set; }

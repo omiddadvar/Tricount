@@ -9,11 +9,8 @@ using Tricount.Domain.Common;
 
 namespace Tricount.Domain.Entities
 {
-    public class Document : BaseAuditableEntity
+    public class Document : BaseAuditableEntity<Guid>
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid DocumenttId { get; set; }
 
         [ForeignKey(nameof(DocumentType))]
         public int DocumentTypeId { get; set; }

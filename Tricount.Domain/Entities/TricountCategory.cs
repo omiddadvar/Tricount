@@ -9,12 +9,10 @@ using Tricount.Domain.Common;
 
 namespace Tricount.Domain.Entities
 {
-    public class TricountCategory : BaseEntity
+    public class TricountCategory : BaseEntity<int>
     {
-        [Key]
-        public int TricountCategoryId { get; set; }
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
-        public string TricountCategoryName { get; set; }
+        public string CategoryName { get; set; }
     }
 }

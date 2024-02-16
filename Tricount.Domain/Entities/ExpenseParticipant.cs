@@ -9,11 +9,8 @@ using Tricount.Domain.Common;
 
 namespace Tricount.Domain.Entities
 {
-    public class ExpenseParticipant : BaseAuditableEntity
+    public class ExpenseParticipant : BaseAuditableEntity<Guid>
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public Guid ExpenseParticipantId { get; set; }
 
         [ForeignKey(nameof(User))]
         public Guid UserId { get; set; }

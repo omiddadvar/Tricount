@@ -9,10 +9,8 @@ using Tricount.Domain.Common;
 
 namespace Tricount.Domain.Entities
 {
-    public class ExpenseType : BaseEntity
+    public class ExpenseType : BaseEntity<int>
     {
-        [Key]
-        public int ExpenseTypeId { get; set; }
         [Column(TypeName = "VARCHAR")]
         [StringLength(100)]
         public string ExpenseTypeName { get; set; }

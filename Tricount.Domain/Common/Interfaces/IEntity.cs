@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Tricount.Domain.Common.Interfaces
 {
-    public interface IEntity
+    public interface IEntity<TPrimaryKey>
     {
-
+        TPrimaryKey Id { get; set; }
     }
 }
