@@ -9,9 +9,8 @@ using Tricount.Domain.Common.Interfaces;
 
 namespace Tricount.Application.Interfaces.Repositories
 {
-    public interface IGenericRepository<T,in TPrimaryKey> where T : class, IEntity
+    public interface IGenericRepository<T,in TPrimaryKey> where T : class, IEntity<TPrimaryKey>
     {
-        IQueryable<T> Entities { get; }
 
         Task<T> GetByIdAsync(TPrimaryKey id, CancellationToken cancellationToken = default);
         Task<IEnumerable<T>> GetAllAsync(CancellationToken cancellationToken = default);

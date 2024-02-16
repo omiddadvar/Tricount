@@ -9,9 +9,8 @@ namespace Tricount.Application.Interfaces.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {
-        IGenericRepository<T ,TPrimaryKey> Repository<T, TPrimaryKey>() where T : BaseEntity;
-        Task<int> Save(CancellationToken cancellationToken);
-        Task<int> SaveAndRemoveCache(CancellationToken cancellationToken, params string[] cacheKeys);
+        IGenericRepository<T, TPrimaryKey> Repository<T, TPrimaryKey>() where T : BaseEntity<TPrimaryKey>;
+        Task<int> SaveAsync(CancellationToken cancellationToken);
         Task Rollback();
     }
 }
