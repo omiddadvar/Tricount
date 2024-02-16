@@ -14,18 +14,14 @@ using Tricount.Persistence.DBContexts;
 namespace Tricount.Persistence.Repositories
 {
     public class GenericRepository<T, TPrimaryKey> : IGenericRepository<T, TPrimaryKey> 
-        where T : BaseEntity
+        where T : BaseEntity<TPrimaryKey>
         where TPrimaryKey : class
     {
         private readonly TricountDBContext _dBContext;
-        private readonly DbSet<T> _dbSet;
-
-        public IQueryable<T> Entities => throw new NotImplementedException();
 
         public GenericRepository(TricountDBContext dBContext)
         {
             _dBContext = dBContext;
-            _dbSet = _dBContext.Set<T>();
         }
 
         public async Task<T> GetByIdAsync(TPrimaryKey id, CancellationToken cancellationToken = default)
@@ -72,7 +68,7 @@ namespace Tricount.Persistence.Repositories
           , Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
             params Expression<Func<T, object>>[] includeProperties)
         {
-            IQueryable<T> query = _dbSet;
+            IQueryable<T> query = _dBContext.Set<T>();
 
             if (Where != null)
             {
