@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <Folder Include="Extentions\" />
+    <Folder Include="Features\Categories\Validations\" />
   </ItemGroup>
 
 </Project>
